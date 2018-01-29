@@ -1,4 +1,4 @@
-import Stream from './Stream';
+import Stream from './presenter';
 import  Enzyme from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 
@@ -17,4 +17,4 @@ describe('Stream',()=>{
 		expect(element.find('.track')).to.have.length(2);
 	})
 
-})
+});

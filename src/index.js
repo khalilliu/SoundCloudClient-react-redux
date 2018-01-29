@@ -1,9 +1,16 @@
+import SC from 'soundcloud';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import Stream from './components/Stream';
+import configureStore from './stores/configureStore';
+import * as actions from './actions';
 
-const title = 'My React Webpack Babel Setup';
+import Stream from './components/Stream/index';
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+
+//init soundcloud
+SC.initialize({ clientId: CLIENT_ID, redirect_uri: REDIRECT_URI });
 
 const tracks = [
 	{
@@ -14,10 +21,13 @@ const tracks = [
 	},
 ];
 
+const store = configureStore();
+store.dispatch(actions.setTracks(tracks));
+
 ReactDOM.render(
-	<div>
-		<Stream tracks={tracks} /> 
-	</div>,
+	<Provider store={store}>
+		<Stream />
+  </Provider>,
 	document.getElementById('app'),
 );
 

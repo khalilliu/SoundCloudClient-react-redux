@@ -14,6 +14,7 @@ module.exports = {
 	devServer: {
 		contentBase: './dist',
 		hot: true,
+		historyApiFallback: true //allow client side route
 	},
 	resolve: {
 		extensions: ['*', '.js', '.jsx'],
