@@ -1,1 +1,1 @@
-# My Minimal React Boilerplate 
+# SoundCloud Client use react and redux

@@ -1,12 +1,12 @@
 import React from 'react';
 import {expect} from 'chai';
-import jsdom from 'jsdom';
+import {JSDOM} from 'jsdom';
 
-const doc = jsdom.jsdom("<!doctype html><html><body></body></html>");
-const win = doc.defaultView;
 
-global.document = doc;
-global.window = win;
+const {document} = new JSDOM("<!doctype html><html><body></body></html>").window;
+
+global.document = document;
+global.window = document.defaultView;
 
 Object.keys(window).forEach(key => {
 	if(!(key in global)){
