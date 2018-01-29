@@ -1,15 +1,22 @@
 import {createStore, applyMiddleware} from 'redux';
-import rootReducer from '../reducers/index';
-
 import {createLogger} from 'redux-logger';
+import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly'; 
+import {routerMiddleware} from 'react-router-redux';
 
+import rootReducer from '../reducers/index';
+//create history api
+import createHistory from 'history/createBrowserHistory';
+
+const history = createHistory();
+const myRouterMiddleware = routerMiddleware(history);
+
+//redux-logger middleware
 const logger = createLogger();
 
-const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
+const createStoreWithMiddleware = applyMiddleware(myRouterMiddleware, logger)(createStore);
 
-const configureStore = (initialState) => {
-	return createStore(rootReducer, initialState);
-};
+const configureStore = (initializeState) => {return createStoreWithMiddleware(rootReducer, initializeState)};
 
-export default configureStore;
+
+export {history, configureStore};
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Stream = ({ tracks=[] }) => {
+	
 	return(
 		<div>
 			{
