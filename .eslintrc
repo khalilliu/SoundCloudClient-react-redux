@@ -9,7 +9,7 @@
   },
   "rules": {
   	"max-len": [1, 120, 2, {ignoreComments: true}],
-    "indent": [2,"tab"],
+    "indent": ["tab"],
     "no-tabs": 0,
     "beforeColon": true 
   },
