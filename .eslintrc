@@ -1,0 +1,27 @@
+{
+	parser: "babel-eslint",
+  "parserOptions":{
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
+  "rules": {
+  	"max-len": [1, 120, 2, {ignoreComments: true}],
+    "indent": [2,"tab"],
+    "no-tabs": 0,
+    "beforeColon": true 
+  },
+  "plugins":[
+  	"react",
+    "jsx-a11y",
+    "import"
+  ],
+  "globals": {
+    "document": true,
+    "foo": true,
+    "window": true
+  },
+  "extends": "airbnb"
+}

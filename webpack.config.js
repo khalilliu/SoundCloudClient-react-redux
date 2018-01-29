@@ -4,37 +4,37 @@ const webpack = require('webpack');
 module.exports = {
 	entry: [
 		'react-hot-loader/patch',
-		'./src/index.js'
+		'./src/index.js',
 	],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',
-		filename: 'bundle.js'
+		filename: 'bundle.js',
 	},
 	devServer: {
 		contentBase: './dist',
-		hot: true
+		hot: true,
 	},
 	resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
-	module:{
-		rules:[
+		extensions: ['*', '.js', '.jsx'],
+	},
+	module: {
+		rules: [
 			{
-				test: /\.(js|jsx)$/,
+				test: /\.(js)$/,
 				exclude: /node_modules/,
 				use: [
 					{
-						loader:'babel-loader',
+						loader: 'babel-loader',
 						options: {
-							presets: ['env','react']
-						}
-					}
-				]
-			}
-		]
+							presets: ['react'],
+						},
+					},
+				],
+			},
+		],
 	},
-	plugins:[
-		new webpack.HotModuleReplacementPlugin()
-	]
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+	],
 };

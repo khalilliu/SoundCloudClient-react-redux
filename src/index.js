@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 const title = 'My React Webpack Babel Setup';
 
 ReactDOM.render(
-  <div>{title}</div>,
-  document.getElementById('app')
+	<div>{ title }</div>	,	 
+	document.getElementById('app'),
 );
 
 module.hot.accept();
+
